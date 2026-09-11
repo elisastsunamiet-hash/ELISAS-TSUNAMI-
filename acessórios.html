@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acessórios | ELISAS TSUNAMI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background:
+                linear-gradient(135deg, #020617, #063b68, #00101f);
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid #008cff;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00bfff;
+            text-shadow: 0 0 15px #00bfff;
+        }
+
+        header p {
+            margin-top: 8px;
+            color: #c8eaff;
+        }
+
+        .container {
+            width: 94%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 25px 0 50px;
+        }
+
+        .voltar {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: #087dcc;
+            padding: 11px 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .voltar:hover {
+            background: #00aaff;
+        }
+
+        .pesquisa {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #008cff;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 16px;
+            outline: none;
+            margin-bottom: 30px;
+        }
+
+        .pesquisa::placeholder {
+            color: #b9d8ed;
+        }
+
+        .secao {
+            margin-bottom: 45px;
+        }
+
+        .secao h2 {
+            color: #00bfff;
+            font-size: 24px;
+            margin-bottom: 18px;
+            border-left: 5px solid #00bfff;
+            padding-left: 12px;
+        }
+
+        .grade {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fill, minmax(180px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: rgba(0, 12, 25, 0.92);
+            border: 1px solid rgba(0, 170, 255, 0.35);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #00bfff;
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);
+        }
+
+        .produto-imagem {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            display: block;
+            background: #f5f5f5;
+            padding: 10px;
+        }
+
+        .info {
+            padding: 14px;
+        }
+
+        .info h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .info p {
+            color: #b9d8ed;
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 13px;
+        }
+
+        .whatsapp {
+            width: 100%;
+            border: none;
+            background: #20c463;
+            color: white;
+            padding: 11px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .whatsapp:hover {
+            background: #16a653;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #8ec9ec;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        @media (max-width: 600px) {
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .grade {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .produto-imagem {
+                height: 165px;
+            }
+
+            .info {
+                padding: 10px;
+            }
+
+            .info h3 {
+                font-size: 14px;
+            }
+
+            .info p {
+                font-size: 12px;
+            }
+
+            .whatsapp {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌊 ELISAS TSUNAMI 🎮</div>
+    <p>Acessórios para consoles e gamers</p>
+</header>
+
+<div class="container">
+
+    <a href="index.html" class="voltar">
+        ← Voltar para o início
+    </a>
+
+    <input
+        type="text"
+        id="pesquisa"
+        class="pesquisa"
+        placeholder="🔎 Pesquisar acessório..."
+    >
+
+
+    <!-- CABOS -->
+
+    <section class="secao">
+
+        <h2>🔌 Cabos</h2>
+
+        <div class="grade">
+
+            <div class="card">
+                <img
+                    class="produto-imagem"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/HDMI-Kabel.jpg"
+                    alt="Cabo HDMI"
+                >
+
+                <div class="info">
+                    <h3>Cabo HDMI</h3>
+
+                    <p>
+                        Cabo HDMI para PlayStation, Xbox,
+                        televisão e outros equipamentos.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Cabo HDMI')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img
+                    class="produto-imagem"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/USB-cable.jpg"
+                    alt="Cabo USB"
+                >
+
+                <div class="info">
+                    <h3>Cabo USB</h3>
+
+                    <p>
+                        Cabo USB para carregamento e
+                        ligação de acessórios.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Cabo USB')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COMANDOS -->
+
+    <section class="secao">
+
+        <h2>🎮 Comandos</h2>
+
+        <div class="grade">
+
+            <div class="card">
+                <img
+                    class="produto-imagem"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Playstation_4_Controller.png"
+                    alt="Comando PS4"
+                >
+
+                <div class="info">
+                    <h3>Comando PS4</h3>
+
+                    <p>
+                        Comando para PlayStation 4.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Comando PS4')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img
+                    class="produto-imagem"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Playstation_DualSense_Controller.png"
+                    alt="Comando PS5"
+                >
+
+                <div class="info">
+                    <h3>Comando PS5</h3>
+
+                    <p>
+                        Comando DualSense para PlayStation 5.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Comando PS5 DualSense')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <img
+                    class="produto-imagem"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Xbox-s-controller.jpg"
+                    alt="Comando Xbox"
+                >
+
+                <div class="info">
+                    <h3>Comando Xbox</h3>
+
+                    <p>
+                        Comando para consoles Xbox.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Comando Xbox')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARMAZENAMENTO -->
+
+    <section class="secao">
+
+        <h2>💾 Armazenamento</h2>
+
+        <div class="grade">
+
+            <div class="card">
+
+                <img
+                    class="produto-imagem"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/External_hard_drives.jpg"
+                    alt="Disco duro externo"
+                >
+
+                <div class="info">
+
+                    <h3>Disco Duro</h3>
+
+                    <p>
+                        Discos duros para armazenamento
+                        de jogos e arquivos.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Disco duro')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BATERIAS -->
+
+    <section class="secao">
+
+        <h2>🔋 Baterias e Carregamento</h2>
+
+        <div class="grade">
+
+            <div class="card">
+
+                <img
+                    class="produto-imagem"
+                    src="https://www.xbox.com/en-US/accessories/batteries-chargers/play-and-charge-kit"
+                    alt="Bateria recarregável Xbox"
+                >
+
+                <div class="info">
+
+                    <h3>Bateria para Comando</h3>
+
+                    <p>
+                        Baterias recarregáveis para
+                        comandos.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Bateria para comando')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    class="produto-imagem"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Headset.jpg"
+                    alt="Headset"
+                >
+
+                <div class="info">
+
+                    <h3>Headset Gamer</h3>
+
+                    <p>
+                        Headset para jogos e
+                        entretenimento.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Headset gamer')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OUTROS -->
+
+    <section class="secao">
+
+        <h2>🧩 Outros acessórios</h2>
+
+        <div class="grade">
+
+            <div class="card">
+
+                <img
+                    class="produto-imagem"
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Gaming_Headsets.png"
+                    alt="Acessórios gamer"
+                >
+
+                <div class="info">
+
+                    <h3>Outros acessórios</h3>
+
+                    <p>
+                        Consulte a ELISAS TSUNAMI
+                        sobre outros acessórios disponíveis.
+                    </p>
+
+                    <button
+                        class="whatsapp"
+                        onclick="pedir('Outros acessórios')">
+                        📲 Pedir pelo WhatsApp
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<footer>
+    © 2026 ELISAS TSUNAMI — Jogos e Assistência Técnica
+</footer>
+
+
+<script>
+
+const numeroWhatsApp = "244952497779";
+
+function pedir(produto) {
+
+    const mensagem =
+        "Olá, ELISAS TSUNAMI! " +
+        "Gostaria de saber o preço e a disponibilidade de: " +
+        produto;
+
+    const url =
+        "https://wa.me/" +
+        numeroWhatsApp +
+        "?text=" +
+        encodeURIComponent(mensagem);
+
+    window.open(url, "_blank");
+}
+
+
+document
+    .getElementById("pesquisa")
+    .addEventListener("input", function () {
+
+        const termo =
+            this.value.toLowerCase().trim();
+
+        document
+            .querySelectorAll(".card")
+            .forEach(card => {
+
+                const texto =
+                    card.innerText.toLowerCase();
+
+                card.style.display =
+                    texto.includes(termo)
+                    ? "block"
+                    : "none";
+
+            });
+
+    });
+
+</script>
+
+</body>
+</html>
