@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jogos | ELISAS TSUNAMI</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #020617, #062b55, #00111f);
+    color: white;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 30px 15px;
+    background: rgba(0, 0, 0, 0.45);
+    border-bottom: 1px solid rgba(0, 170, 255, 0.4);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #00bfff;
+    text-shadow: 0 0 15px #00bfff;
+}
+
+header p {
+    margin-top: 8px;
+    color: #c9eaff;
+}
+
+.container {
+    width: 94%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 25px 0 50px;
+}
+
+.voltar {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: #087dcc;
+    padding: 11px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.voltar:hover {
+    background: #00aaff;
+}
+
+.pesquisa {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #008cff;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 25px;
+}
+
+.pesquisa::placeholder {
+    color: #b9d8ed;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filtros button {
+    border: none;
+    padding: 11px 17px;
+    border-radius: 10px;
+    background: #073c69;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filtros button:hover,
+.filtros button.ativo {
+    background: #00aaff;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+}
+
+.secao {
+    margin-bottom: 45px;
+}
+
+.secao h2 {
+    font-size: 25px;
+    margin-bottom: 18px;
+    color: #00bfff;
+    border-left: 5px solid #00bfff;
+    padding-left: 12px;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: rgba(0, 12, 25, 0.88);
+    border: 1px solid rgba(0, 170, 255, 0.35);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.25s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #00bfff;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.35);
+}
+
+.capa {
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #00345e, #00101d);
+    display: block;
+}
+
+.info {
+    padding: 13px;
+}
+
+.info h3 {
+    font-size: 16px;
+    min-height: 40px;
+    margin-bottom: 8px;
+}
+
+.plataforma {
+    display: inline-block;
+    font-size: 12px;
+    background: #07558b;
+    padding: 5px 8px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+
+.whatsapp {
+    width: 100%;
+    border: none;
+    background: #20c463;
+    color: white;
+    padding: 10px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.whatsapp:hover {
+    background: #16a653;
+}
+
+.carregando {
+    text-align: center;
+    padding: 25px;
+    color: #9ddcff;
+}
+
+.semresultado {
+    text-align: center;
+    padding: 30px;
+    color: #b8dfff;
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8ec9ec;
+    background: rgba(0,0,0,0.35);
+}
+
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .grade {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .capa {
+        height: 210px;
+    }
+
+    .info {
+        padding: 10px;
+    }
+
+    .info h3 {
+        font-size: 14px;
+    }
+
+    .whatsapp {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌊 ELISAS TSUNAMI 🎮</div>
+    <p>Jogos, entretenimento e assistência técnica</p>
+</header>
+
+<div class="container">
+
+    <a href="index.html" class="voltar">← Voltar para o início</a>
+
+    <input
+        type="text"
+        id="pesquisa"
+        class="pesquisa"
+        placeholder="🔎 Pesquisar jogo..."
+    >
+
+    <div class="filtros">
+        <button class="ativo" onclick="filtrar('todos', this)">Todos</button>
+        <button onclick="filtrar('PS3', this)">PS3</button>
+        <button onclick="filtrar('PS4', this)">PS4</button>
+        <button onclick="filtrar('PS5', this)">PS5</button>
+        <button onclick="filtrar('Xbox', this)">Xbox</button>
+        <button onclick="filtrar('PSP', this)">PSP</button>
+    </div>
+
+    <div id="jogosContainer"></div>
+
+    <div id="semresultado" class="semresultado">
+        Nenhum jogo encontrado.
+    </div>
+
+</div>
+
+<footer>
+    © 2026 ELISAS TSUNAMI — Jogos e Assistência Técnica
+</footer>
+
+<script>
+
+const numeroWhatsApp = "244952497779";
+
+const jogos = {
+
+PS3: [
+"Grand Theft Auto V",
+"God of War III",
+"The Last of Us",
+"Uncharted 2: Among Thieves",
+"Uncharted 3: Drake's Deception",
+"Red Dead Redemption",
+"Batman: Arkham City",
+"Metal Gear Solid 4",
+"Gran Turismo 6",
+"LittleBigPlanet 2",
+"Infamous 2",
+"Assassin's Creed IV Black Flag",
+"Far Cry 3",
+"Call of Duty: Black Ops II",
+"Call of Duty: Modern Warfare 3",
+"FIFA 19",
+"Pro Evolution Soccer 2018",
+"Need for Speed Most Wanted",
+"Tekken 6",
+"Resident Evil 6"
+],
+
+PS4: [
+"Grand Theft Auto V",
+"God of War",
+"The Last of Us Remastered",
+"Uncharted 4: A Thief's End",
+"Marvel's Spider-Man",
+"Red Dead Redemption 2",
+"Ghost of Tsushima",
+"Horizon Zero Dawn",
+"God of War Ragnarök",
+"Gran Turismo Sport",
+"FIFA 23",
+"EA Sports FC 24",
+"Call of Duty: Modern Warfare",
+"Call of Duty: Black Ops III",
+"Assassin's Creed Odyssey",
+"Far Cry 5",
+"Resident Evil 2",
+"Resident Evil 7",
+"Tekken 7",
+"Mortal Kombat 11"
+],
+
+PS5: [
+"Marvel's Spider-Man 2",
+"God of War Ragnarök",
+"Horizon Forbidden West",
+"Ratchet & Clank: Rift Apart",
+"Gran Turismo 7",
+"Returnal",
+"Demon's Souls",
+"Astro's Playroom",
+"Resident Evil Village",
+"Resident Evil 4",
+"Final Fantasy XVI",
+"Final Fantasy VII Rebirth",
+"Ghost of Tsushima Director's Cut",
+"Death Stranding Director's Cut",
+"EA Sports FC 24",
+"EA Sports FC 25",
+"Call of Duty: Modern Warfare III",
+"Call of Duty: Black Ops 6",
+"Mortal Kombat 1",
+"NBA 2K25"
+],
+
+Xbox: [
+"Halo Infinite",
+"Forza Horizon 5",
+"Forza Motorsport",
+"Gears 5",
+"Gears of War 4",
+"Sea of Thieves",
+"Starfield",
+"Microsoft Flight Simulator",
+"State of Decay 2",
+"Grounded",
+"Sunset Overdrive",
+"Quantum Break",
+"Killer Instinct",
+"Ryse: Son of Rome",
+"Red Dead Redemption 2",
+"Grand Theft Auto V",
+"Call of Duty: Black Ops 6",
+"Assassin's Creed Valhalla",
+"Far Cry 6",
+"Mortal Kombat 1"
+],
+
+PSP: [
+"God of War: Chains of Olympus",
+"God of War: Ghost of Sparta",
+"Grand Theft Auto: Liberty City Stories",
+"Grand Theft Auto: Vice City Stories",
+"Tekken 6",
+"Tekken: Dark Resurrection",
+"Naruto: Ultimate Ninja Heroes",
+"Naruto Shippuden: Ultimate Ninja Impact",
+"Dragon Ball Z: Shin Budokai",
+"Dragon Ball Z: Shin Budokai 2",
+"FIFA 14",
+"Pro Evolution Soccer 2014",
+"Need for Speed: Most Wanted 5-1-0",
+"Need for Speed Carbon: Own the City",
+"Midnight Club 3: DUB Edition",
+"Assassin's Creed: Bloodlines",
+"Metal Gear Solid: Peace Walker",
+"Monster Hunter Freedom Unite",
+"Grand Theft Auto: Chinatown Wars",
+"Prince of Persia: Revelations"
+]
+
+};
+
+let filtroAtual = "todos";
+
+function criarCard(nome, plataforma) {
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.nome = nome.toLowerCase();
+    card.dataset.plataforma = plataforma;
+
+    const imagem = document.createElement("img");
+    imagem.className = "capa";
+    imagem.alt = nome;
+
+    /*
+      Primeiro tenta encontrar a página do jogo na Wikipédia.
+      Se encontrar uma miniatura, ela será usada automaticamente.
+    */
+
+    const tituloWiki = encodeURIComponent(nome.replace(/:/g, ""));
+
+    imagem.src =
+        "https://en.wikipedia.org/api/rest_v1/page/summary/"
+        + tituloWiki;
+
+    imagem.onerror = function() {
+        imagem.onerror = null;
+
+        /*
+          Capa alternativa criada pelo próprio site.
+          Assim o card nunca fica vazio.
+        */
+
+        imagem.src =
+            "data:image/svg+xml;charset=UTF-8," +
+            encodeURIComponent(`
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="600"
+                 height="800"
+                 viewBox="0 0 600 800">
+
+                <defs>
+                    <linearGradient id="g"
+                        x1="0" y1="0"
+                        x2="1" y2="1">
+                        <stop offset="0%"
+                            stop-color="#0066a3"/>
+                        <stop offset="100%"
+                            stop-color="#001525"/>
+                    </linearGradient>
+                </defs>
+
+                <rect width="600"
+                      height="800"
+                      fill="url(#g)"/>
+
+                <text x="300"
+                      y="120"
+                      fill="white"
+                      font-size="42"
+                      text-anchor="middle"
+                      font-family="Arial"
+                      font-weight="bold">
+                      ELISAS TSUNAMI
+                </text>
+
+                <text x="300"
+                      y="390"
+                      fill="white"
+                      font-size="35"
+                      text-anchor="middle"
+                      font-family="Arial"
+                      font-weight="bold">
+                      ${nome}
+                </text>
+
+                <text x="300"
+                      y="470"
+                      fill="#7ddcff"
+                      font-size="28"
+                      text-anchor="middle"
+                      font-family="Arial">
+                      ${plataforma}
+                </text>
+
+                <text x="300"
+                      y="700"
+                      fill="#00bfff"
+                      font-size="30"
+                      text-anchor="middle"
+                      font-family="Arial">
+                      🎮 GAME
+                </text>
+
+            </svg>
+            `);
+    };
+
+    /*
+      A API da Wikipédia retorna JSON.
+      Precisamos buscar o JSON e pegar thumbnail.source.
+    */
+
+    fetch(
+        "https://en.wikipedia.org/api/rest_v1/page/summary/"
+        + tituloWiki
+    )
+    .then(res => {
+
+        if (!res.ok) {
+            throw new Error("Imagem não encontrada");
+        }
+
+        return res.json();
+
+    })
+    .then(data => {
+
+        if (data.thumbnail && data.thumbnail.source) {
+
+            imagem.src = data.thumbnail.source;
+
+        } else {
+
+            throw new Error("Sem imagem");
+
+        }
+
+    })
+    .catch(() => {
+
+        imagem.onerror();
+
+    });
+
+
+    const info = document.createElement("div");
+    info.className = "info";
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = nome;
+
+    const plataformaTexto = document.createElement("span");
+    plataformaTexto.className = "plataforma";
+    plataformaTexto.textContent = plataforma;
+
+    const botao = document.createElement("button");
+    botao.className = "whatsapp";
+    botao.textContent = "📲 Pedir este jogo";
+
+    botao.onclick = function() {
+
+        const mensagem =
+            "Olá, ELISAS TSUNAMI! " +
+            "Gostaria de pedir o jogo: " +
+            nome +
+            " (" +
+            plataforma +
+            ")";
+
+        const url =
+            "https://wa.me/" +
+            numeroWhatsApp +
+            "?text=" +
+            encodeURIComponent(mensagem);
+
+        window.open(url, "_blank");
+    };
+
+    info.appendChild(titulo);
+    info.appendChild(plataformaTexto);
+    info.appendChild(botao);
+
+    card.appendChild(imagem);
+    card.appendChild(info);
+
+    return card;
+}
+
+
+function mostrarJogos() {
+
+    const container =
+        document.getElementById("jogosContainer");
+
+    container.innerHTML = "";
+
+    let encontrou = false;
+
+    for (const plataforma in jogos) {
+
+        if (
+            filtroAtual !== "todos" &&
+            filtroAtual !== plataforma
+        ) {
+            continue;
+        }
+
+        const secao =
+            document.createElement("section");
+
+        secao.className = "secao";
+
+        const titulo =
+            document.createElement("h2");
+
+        titulo.textContent =
+            plataforma + " — 20 jogos";
+
+        const grade =
+            document.createElement("div");
+
+        grade.className = "grade";
+
+        jogos[plataforma].forEach(nome => {
+
+            const card =
+                criarCard(nome, plataforma);
+
+            grade.appendChild(card);
+
+            encontrou = true;
+        });
+
+        secao.appendChild(titulo);
+        secao.appendChild(grade);
+
+        container.appendChild(secao);
+    }
+
+    document
+        .getElementById("semresultado")
+        .style.display =
+        encontrou ? "none" : "block";
+
+    aplicarPesquisa();
+}
+
+
+function filtrar(plataforma, botao) {
+
+    filtroAtual = plataforma;
+
+    document
+        .querySelectorAll(".filtros button")
+        .forEach(b => b.classList.remove("ativo"));
+
+    botao.classList.add("ativo");
+
+    mostrarJogos();
+}
+
+
+function aplicarPesquisa() {
+
+    const termo =
+        document
+        .getElementById("pesquisa")
+        .value
+        .toLowerCase()
+        .trim();
+
+    let encontrou = false;
+
+    document
+        .querySelectorAll(".card")
+        .forEach(card => {
+
+            const nome =
+                card.dataset.nome;
+
+            const plataforma =
+                card.dataset.plataforma
+                .toLowerCase();
+
+            const aparece =
+                nome.includes(termo) ||
+                plataforma.includes(termo);
+
+            card.style.display =
+                aparece ? "block" : "none";
+
+            if (aparece) {
+                encontrou = true;
+            }
+        });
+
+    document
+        .querySelectorAll(".secao")
+        .forEach(secao => {
+
+            const cardsVisiveis =
+                secao.querySelectorAll(
+                    ".card[style*='display: block']"
+                );
+
+            secao.style.display =
+                cardsVisiveis.length > 0
+                ? "block"
+                : "none";
+        });
+
+    document
+        .getElementById("semresultado")
+        .style.display =
+        encontrou ? "none" : "block";
+}
+
+
+document
+    .getElementById("pesquisa")
+    .addEventListener("input", aplicarPesquisa);
+
+
+mostrarJogos();
+
+</script>
+
+</body>
+</html>
